@@ -1,6 +1,6 @@
 # Communication Protocols and Industrial Applications
 
-## 📌 Sobre o Projeto
+## O Projeto
 
 Este repositório contém **exemplos de comunicação industrial utilizando Ethernet/IP**.  
 Foram implementados:
@@ -10,16 +10,16 @@ Foram implementados:
 
 ---
 
-## 👨‍🎓 Autores
+## Autores
 
 - Thiago Rodrigo Monteiro Salgado
 - Gledyson Cidade
 
-Universidade Federal do Amazonas
+Universidade Federal do Amazonas - PPGEE
 
 ---
 
-## ⚙️ Requisitos
+## Requisitos
 
 - Python 3.9+
 - Biblioteca [cpppo](https://github.com/pjkundert/cpppo)
@@ -33,21 +33,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📦 Estrutura do Projeto
-
-```
-COMMUNICATION-PROTOCOLS-AND-IND...
-│── _ethernet_ip.py              # Classe auxiliar
-│── service_ethernet_ip.py       # Serviço REST (cliente)
-│── sim_ethernet_ip_server.py    # Servidor Ethernet/IP simulado
-│── LICENSE
-│── README.md
-│── requirements.txt
-```
-
----
-
-## ▶️ Como Executar
+## Como Executar
 
 ### 1. Iniciar o Servidor Ethernet/IP
 
@@ -55,12 +41,6 @@ Este servidor simula variáveis industriais como `acceleration`, `speed_factor`,
 
 ```bash
 python sim_ethernet_ip_server.py
-```
-
-📌 Saída esperada:
-
-```
-- Iniciando: python -m cpppo.server.enip.main -v acceleration=REAL speed_factor=REAL inputs=BOOL[8] outputs=BOOL[8]
 ```
 
 Isso significa que o servidor Ethernet/IP está rodando localmente (porta padrão `44818`).
@@ -85,16 +65,16 @@ Agora sua API REST está rodando na porta **5000**.
 
 ---
 
-## 🔗 Rotas Disponíveis
+## Rotas Disponíveis
 
-### 📥 Leitura de variáveis
+### Leitura de variáveis
 
 - `GET /acceleration`
 - `GET /speed_factor`
 - `GET /inputs/<index>`
 - `GET /outputs/<index>`
 
-### 📤 Escrita de variáveis
+### Escrita de variáveis
 
 - `POST /acceleration`  
   Body: `{"value": 10.5}`
@@ -107,7 +87,7 @@ Agora sua API REST está rodando na porta **5000**.
 
 ---
 
-## 🧪 Exemplos de Teste (via curl)
+## Exemplos de Teste (via curl)
 
 Ler aceleração:
 
@@ -129,9 +109,15 @@ curl -X POST http://localhost:5000/outputs/0
 
 ---
 
-## 📂 requirements.txt
+## requirements.txt
 
 ```txt
 flask==3.0.3
 cpppo==4.0.0
 ```
+
+## Node-RED - Interface
+
+Além disso, você pode importar o json com o programa do node-red para poder gerar uma interface de fácil comunicação com o cliente.
+
+![Interface em node-red](node-red-interface.png)
